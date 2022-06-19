@@ -3,18 +3,25 @@ Built using the [TypeScript Boilerplate for 2021 as template](https://github.com
 
 # Glossary
 Glossary
-1. **Tournament player** - A club member that signed up for a tournament;
-2. **Tournament Rank** - Also, rank, a player current tournament score and their tournament ELO rate; we use the later to break ties;
-3. **Tournament player acceptable piece colors** - An array of strings with two entries, describing the player' acceptable piece colors for their next game:
+
+1. **Acceptable Piece Colors** - An array of strings with two entries, describing the the `Tournament Player's`' acceptable piece colors for their next game:
    1. If no entries, either color; we have a bias to assigning the white game pieces to lower ranked players;
-   1. The string at index 0, if present, it represents the player first preferred game pieces color for their next game, which is the opposite to the player's last game pieces color;
-   1. The string at index 1, if present, it represents the player second game pieces color preference for their next game, only and if only the player has not played with it in their last two games;
-4. **Tournament players** - The array of tournament players
-5. **Work Tournament players** - A copy of the  array of tournament players, sorted by rank;
-6. **Candidate Round** - A tournament round under construction; it becomes a Tournament Game when the Tournament Director officially starts it;
-7. **Candidate Game** - A game under construction; it becomes a Tournament Game when the Tournament Director officially starts its round;
-8. **Candidate Game Player** - A Tournament Player, selected from the Work Tournament players array under consideration for a Candidate Game;
-9. **Opponent Candidate Game Player** - A Tournament Player, selected from the Work Tournament players array under consideration to play against a Candidate Game Playe;
+   1. The string at index 0, if present, it represents the player's first pieces color preference game for their next game, which is the opposite to the player's last game pieces color;
+   1. The string at index 1, if present, it represents the player's second game pieces color preference for their next game, only and if only the player has not played with the same pice color in their last two games;
+2. **Candidate Game** - A `Round Game` under construction; it becomes a `Tournament Game` when both players have legal game pieces color;
+3. **Candidate Game Player** - A `Tournament Player`, selected from the `Work Tournament Players` array under consideration for a `Candidate Game`;
+4. **Opponent Candidate Game Players** - An `Tournament Player` array, selected from the `Work Tournament Players` array:
+   1. Its elements are players who have not played the `Candidate Game Player` in the `Tournament`;
+   2. It consistes of two halves, `Higher` and `Lower` ranked players;
+   3. The `Higher Ranked` players are appended from the player following the `Work Tournament Players` array midpoint player, and down to the lowest ranked`Candidate Game Player`;
+   4. The `Lower Ranked` players are appended from the player at `Work Tournament Players` array midpoint, and up to, but not, the `Candidate Game Player`;
+5. **Opponent Candidate Player** - A `Tournament Player`, selected from the `Opponent Candidates Players` array under consideration to play against a `Candidate Game Player`;
+6. **Round bye player** - A `Tournament Player` that does not play on a given `Tournament Round` to render the number of round players even;
+7. **Tournament Player** - A `Club Member` that signed up for a `Tournament`;
+8. **Tournament players** - The array of tournament players;
+9. **Tournament Rank** - Also, `rank`, a sorting key consisting of the `Tournament Player's` current `Tournament Score` and their `Tournament ELO Rate`; we use the later to break ties;
+10. **Tournament Round** - A collection of games planned as part of a given round;
+11. **Work Tournament Players** - A copy of the `Tournament Players` array, sorted by `rank`;
 
 # Algorithm
 1. Build the `Work Tournament Players` array:
