@@ -59,4 +59,14 @@ Glossary
          6. Add the `Tournament Game` to the `Tournament Round`
             1. Remove the `Game Candidate Player` and the `Opponent Game Candidate Player` from the `Work Tournament Players` array
          7. Repeat 2.2
-
+            Methods to Create
+# Methods to Create
+1. Build the `Work Tournament Players` array;
+2. Select `Bye Player`;
+3. Create a `Game Bye`;
+4. Add a Game to the `Round Candidate` array;
+5. Remove player from `Work Tournament Players` array;
+6. Create a `Game Candidate`;
+7. Build the `Opponent Candidate Players` array
+8. Select an  `Opponent Candidate Player`
+9 Select a `Game Candidate` players' game colors;
