@@ -1,0 +1,14 @@
+{"id": "7rC-XyO36",
+  "director": "l7DWo44Nji8",
+  "name": "Cambridge-2022",
+  "start": "Fri Jul 01 2022 00:00:00 GMT-0700 (Pacific Daylight Time)",
+  "end": "Mon Jul 04 2022 00:00:00 GMT-0700 (Pacific Daylight Time)",
+  "maxPlayers": 25,
+  "type": "swiss",
+  "numberOfRounds": 5,
+  "winPoints": 3,
+  "drawPoints": 1,
+  "lossPoints": 0,
+  "players": [{"id":"wMIO8kdJi","name":"Hodge, Adeline","rate":2043,"colors":[],"opponents":[],"score":0},{"id":"7Sf0CcAaoz","name":"Lowe, Maryjane","rate":1544,"colors":[],"opponents":[],"score":0},{"id":"0AwPRm82Le","name":"Dorsey, Brett","rate":1957,"colors":[],"opponents":[],"score":0},{"id":"5udxzNEpIu","name":"Moody, Arianna","rate":1026,"colors":[],"opponents":[],"score":0},{"id":"pPiXT9EJ1C","name":"Stuart, Reuben","rate":1945,"colors":[],"opponents":[],"score":0},{"id":"ofP1VHpOGW","name":"Snow, Saniya","rate":1705,"colors":[],"opponents":[],"score":0},{"id":"hQuf6bERqH","name":"Mcguire, Tristan","rate":1584,"colors":[],"opponents":[],"score":0},{"id":"uT6akMHdPf","name":"Osborn, Norah","rate":2039,"colors":[],"opponents":[],"score":0},{"id":"PWyP6-21cX","name":"Solomon, Moses","rate":1073,"colors":[],"opponents":[],"score":0},{"id":"_qzhuNqMqn","name":"Valdez, Joslyn","rate":1909,"colors":[],"opponents":[],"score":0},{"id":"VlXqLDxUN9","name":"Todd, Makai","rate":1608,"colors":[],"opponents":[],"score":0},{"id":"eHQmmc9VAB","name":"Barajas, Emilio","rate":1146,"colors":[],"opponents":[],"score":0},{"id":"6b4Pb8NV3i","name":"Kerr, Aaron","rate":1740,"colors":[],"opponents":[],"score":0},{"id":"b1ONc6PJP6","name":"Harrell, Demarion","rate":1859,"colors":[],"opponents":[],"score":0},{"id":"KPmlmxHY72","name":"Maddox, Sophia","rate":1685,"colors":[],"opponents":[],"score":0},{"id":"v5VDWM8815","name":"Delacruz, Ivy","rate":1698,"colors":[],"opponents":[],"score":0},{"id":"UnAsLvVwhkd","name":"Huynh, Kristian","rate":1205,"colors":[],"opponents":[],"score":0},{"id":"-i5XjpvwF4j","name":"Massey, Abbie","rate":1131,"colors":[],"opponents":[],"score":0},{"id":"FfOZDBM6mIt","name":"Woodward, Emilie","rate":1669,"colors":[],"opponents":[],"score":0},{"id":"sK7ae1F9crG","name":"Hobbs, Jarrett","rate":1788,"colors":[],"opponents":[],"score":0},{"id":"zV5quEifuR-","name":"Schmitt, Amani","rate":1884,"colors":[],"opponents":[],"score":0},{"id":"1tiN6IHrL2Y","name":"Henson, Shayla","rate":1309,"colors":[],"opponents":[],"score":0},{"id":"PsI5PH1s22x","name":"Mcclain, Brenna","rate":1008,"colors":[],"opponents":[],"score":0},{"id":"xF5H9yWm_bX","name":"Wells, Kendrick","rate":1280,"colors":[],"opponents":[],"score":0},{"id":"BhUQzSfXhzz","name":"Hoffman, Ansley","rate":1278,"colors":[],"opponents":[],"score":0}],
+  "rounds": []
+}
