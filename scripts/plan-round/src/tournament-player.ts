@@ -17,11 +17,17 @@ export type ITournamentPlayer = {
   id: string; // Club Member Id
   name: string; // Last, First
   score: number // tournament score, updated after each game
-  clubRate: number; // club rate, set at the start of the tournament
+  clubRating: number; // club rate, set at the start of the tournament
   opponents: string[];
   lastTwoGamesColors: string[] // last two game colors
 }
 
+export const buildWorkTournamentPlayers = (tournamentPlayers: ITournamentPlayer[]): ITournamentPlayer[] => {
+  return tournamentPlayers.sort(
+    (player_1, player_2) =>
+      player_1.score - player_2.score || player_1.clubRating - player_2.clubRating
+  )
+}
 export let WorkTournamentPlayers: ITournamentPlayer[] = [];
 export let OpponentCandidates: ITournamentPlayer[] = [];
 
