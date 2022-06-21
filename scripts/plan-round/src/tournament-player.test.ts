@@ -129,7 +129,7 @@ describe(`tournament Player`, () => {
         workTournamentPlayers[23].score = 7
         workTournamentPlayers[24].score = 7
 
-        // sort by tournament score(desc) and club rating (desc)
+        // sort by highest tournament score(desc) and highest club rating (desc)
         workTournamentPlayers.sort((player_1, player_2) =>
           player_2.score - player_1.score || player_2.clubRating - player_1.clubRating
         )
@@ -153,6 +153,16 @@ describe(`tournament Player`, () => {
         expect(opponentCandidates.find(element => element.id === "BhUQzSfXhzz")).toBeTruthy();
         expect(opponentCandidates.find(element => element.id === "FfOZDBM6mIt")).toBeTruthy();
         expect(opponentCandidates.find(element => element.id === "uT6akMHdPf")).toBeTruthy();
+
+        // And they are sorted correctly
+        const index_1: number = opponentCandidates.findIndex(player => player.id === "BhUQzSfXhzz");
+        const index_2: number = opponentCandidates.findIndex(player => player.id === "FfOZDBM6mIt");
+        const index_3: number = opponentCandidates.findIndex(player => player.id === "uT6akMHdPf");
+        expect (index_1).toBeGreaterThan(-1);
+        expect (index_2).toBeGreaterThan(-1);
+        expect (index_3).toBeGreaterThan(-1);
+        expect (index_3).toBeGreaterThan(index_2);
+        expect (index_2).toBeGreaterThan(index_1);
 
         // PsI5PH1s22x opponents - KPmlmxHY72", "sK7ae1F9crG", "_qzhuNqMqn" should not be in opponentCandidates
         expect(opponentCandidates.find(element => element.id === "KPmlmxHY72")).toBeFalsy();
