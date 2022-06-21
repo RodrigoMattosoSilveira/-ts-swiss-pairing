@@ -1,4 +1,5 @@
-import {ITournamentPlayer, buildWorkTournamentPlayers} from "./tournament-player";
+import {ITournamentPlayer, buildWorkTournamentPlayers, getByePlayer} from "./tournament-player";
+import {Result} from "ts-results";
 
 describe(`tournament Player`, () => {
   let tournamentPlayers: ITournamentPlayer[] = []
@@ -32,9 +33,31 @@ describe(`tournament Player`, () => {
     ];
     done();
   });
-  it(`Created the workTournamentPlayers array correctly`, async done => {
-    const workTournamentPlayers: ITournamentPlayer[] = buildWorkTournamentPlayers(tournamentPlayers);
-    expect(workTournamentPlayers[0].id).toEqual("PsI5PH1s22x");
-    done();
-  });
+  describe(`workTournamentPlayers`, () => {
+    it(`Created the workTournamentPlayers array correctly`, async done => {
+      const workTournamentPlayers: ITournamentPlayer[] = buildWorkTournamentPlayers(tournamentPlayers);
+      expect(workTournamentPlayers[0].id).toEqual("PsI5PH1s22x");
+      done();
+    });
+    it(`get bye player from odd sized array`, async done => {
+      const workTournamentPlayers: ITournamentPlayer[] = buildWorkTournamentPlayers(tournamentPlayers);
+      let result: Result<ITournamentPlayer, Error> = getByePlayer(workTournamentPlayers);
+      expect(result.ok).toBeTruthy()
+      if (result.ok) {
+        const byePlayer: ITournamentPlayer | Error = result.val
+        expect(byePlayer.id).toEqual("PsI5PH1s22x");
+      }
+      done();
+    });
+    it(`get bye player from even sized array`, async done => {
+      const workTournamentPlayers: ITournamentPlayer[] = buildWorkTournamentPlayers(tournamentPlayers).slice(1);
+      let result: Result<ITournamentPlayer, Error> = getByePlayer(workTournamentPlayers);
+      expect(result.err).toBeTruthy()
+      if (result.err) {
+        const byePlayer: string = result.val.message
+        expect(byePlayer).toEqual(`workTournamentPlayers length is even, no bye player`);
+      }
+      done();
+    });
+  })
 })

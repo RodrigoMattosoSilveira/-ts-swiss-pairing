@@ -12,6 +12,7 @@
  * When the Tournament Director closes a ITournament.Game, the application:
  * - Adds the TournamentT.winPoints or drawPoints, to each players ITournamentPlayer.score, based on the game result;
  */
+import { Ok, Err, Result } from 'ts-results';
 
 export type ITournamentPlayer = {
   id: string; // Club Member Id
@@ -28,7 +29,16 @@ export const buildWorkTournamentPlayers = (tournamentPlayers: ITournamentPlayer[
       player_1.score - player_2.score || player_1.clubRating - player_2.clubRating
   )
 }
-export let WorkTournamentPlayers: ITournamentPlayer[] = [];
-export let OpponentCandidates: ITournamentPlayer[] = [];
+
+export const getByePlayer = (workTournamentPlayers: ITournamentPlayer[]): Result<ITournamentPlayer, Error>  => {
+  let result: Result<ITournamentPlayer, Error>;
+  if (workTournamentPlayers.length % 2 === 0) {
+    result = Err(new Error(`workTournamentPlayers length is even, no bye player`))
+  }
+  else {
+    result = Ok({...workTournamentPlayers[0]})
+  }
+  return result;
+}
 
 
