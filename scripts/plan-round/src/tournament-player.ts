@@ -61,4 +61,42 @@ export const getByePlayer = (workTournamentPlayers: ITournamentPlayer[]): Result
   return result;
 }
 
+/**
+ * Build a player's opponent candidates array.
+ * Our goal is to pair high tournament scoring players, without pairing te strongest players with each other early;  we
+ * also want to not include opponent candidates who have played with workTournamentPlayers[0]
+ *
+ * @param workTournamentPlayers
+ * @returns opponentCandidates
+ */
+export const buildOpponentsCandidates = (workTournamentPlayers:ITournamentPlayer[]): ITournamentPlayer[] => {
+  // sort by tournament score(desc) and club rating (desc)
+  workTournamentPlayers.sort((player_1, player_2) =>
+    player_2.score - player_1.score || player_2.clubRating - player_1.clubRating
+  )
+  const playerOneId: string = workTournamentPlayers[0].id;
+  return [...workTournamentPlayers].
+  slice(1).
+  sort(
+    (player_1, player_2) =>
+      player_2.score - player_1.score || player_1.clubRating - player_2.clubRating
+  ).
+  filter((thisPlayer) =>
+  {
+    return thisPlayer.opponents.indexOf(playerOneId) < 0
+  })
+
+  // // Find the workTournamentPlayers midpoint
+  // const length =  workTournamentPlayers.length;
+  // const midPoint = (length / 2) % 2 === 0 ? (length / 2) - 1 : (length / 2) + 1;
+  //
+  // // Add all players in the range (first player, midpoint player], in reverse order
+  // opponentCandidates = workTournamentPlayers.slice(1, midPoint).reverse();
+  //
+  // // Add all players in the range (midpoint player, last player]
+  // for (let i = midPoint; i < length; i++) {
+  //   opponentCandidates.push(workTournamentPlayers[i])
+  // }
+}
+
 

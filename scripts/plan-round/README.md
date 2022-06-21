@@ -41,9 +41,14 @@ This is 2-entries string arra describing a `Tournament Player's` last two games'
 2. If entry at index and index 1 match, return Result.err("no acceptable colors available")
 
 ## Opponent Candidates
-1. Derieved the `Work Tournament Players` array, It has two halves:
-  1. The `first half` consist of the players from the player at the middle of the array, up to but not includling player_1;
-  3. The `second  half` consist of the players from the player at the middle of the array down to the last player in the array;
+1. Derived the `Work Tournament Players` array, sorted by tournament score(desc) and club rating (desc);
+2. Savethe first `Work Tournament Players` player, they have the highest tournament and club rating;
+3. Remove the the `Work Tournament Players` first player, saving the resulring array as `Opponent Candidates`;
+4. Sort `Opponent Candidates` by tournament score(desc) and club rating (asc);
+
+Our goal is to pair the the highest tournament and club rating player, with a player with the same tournament score, but a lower club rating. This enables us to have strong pairings, without pairing the strongest players during the initial rounds.
+
+
 
 ## Work Tournament Players
 1. A copy of the `Tournament Players` array, sorted by `rank`;
@@ -114,8 +119,13 @@ Using the `Candidate Game Array`
 9 Select a `Game Candidate` players' game colors;
 
 
-is the oppotive of their last game; although it is OK to play two games with the same color, it is not OK to play three ganes with the sames color; this is string array with two entries, describing the acceptable color for their next game:
+is the opposite of their last game; although it is OK to play two games with the same color, it is not OK to play three ganes with the sames color; this is string array with two entries, describing the acceptable color for their next game:
 1. If no entries, either color; we have a bias to assigning the white pieces to lower ranked players;
 1. The string at index 0, if present, is the prefered for their next game; it is the opposite of their last game's color;
 1. The string at index 1, if present, is the same color as their last game'color, only and if only the player has not played with the same color in their last two games;
 2. **Candidate Game** - A `Round Game` under construction as we calculate the players' colors; it becomes a `Tournament Game` when both players have legal game pieces color;
+
+# Links and references
+1. [Comparing Arrays](https://stackoverflow.com/questions/38498258/typescript-difference-between-two-arrays)
+2. [Sort array by multiple fields](https://www.benmvp.com/blog/quick-way-sort-javascript-array-multiple-fields/)
+3. [ts-results](https://www.npmjs.com/package/ts-results/v/3.3.0)

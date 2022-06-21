@@ -2,7 +2,8 @@ import {
   ITournamentPlayer,
   buildWorkTournamentPlayers,
   getByePlayer,
-  pruneWorkTournamentPlayers
+  pruneWorkTournamentPlayers,
+  buildOpponentsCandidates
 } from "./tournament-player";
 import {Result} from "ts-results";
 
@@ -80,6 +81,7 @@ describe(`tournament Player`, () => {
       prunedWorkTournamentPlayers.forEach((player) => prunedWorkTournamentPlayersIds.push(player.id));
 
       // Find the elements of workTournamentPlayersIDs thare are not in prunedWorkTournamentPlayersIds
+      // Comparing arraays: https://stackoverflow.com/questions/38498258/typescript-difference-between-two-arrays
       let missingIds: string[] = workTournamentPlayersIDs.filter(id => prunedWorkTournamentPlayersIds.indexOf(id) < 0);
       expect(missingIds.length).toEqual(1);
       expect(missingIds[0]).toEqual("UnAsLvVwhkd");
@@ -89,6 +91,50 @@ describe(`tournament Player`, () => {
 
       done();
     });
+    describe(` opponent candidates array`, () => {
 
+      it(`builds correctly after first round, first player`, async done => {
+        const opponentCandidates: ITournamentPlayer[] = buildOpponentsCandidates(tournamentPlayers)
+        expect(opponentCandidates.length).toEqual(24)
+        expect(opponentCandidates[0].id).toEqual("PsI5PH1s22x")
+        expect(opponentCandidates[10].id).toEqual("hQuf6bERqH")
+        expect(opponentCandidates[23].id).toEqual("uT6akMHdPf")
+        done();
+      });
+      it(`builds correctly with third round, first place player`, async done => {
+        const workTournamentPlayers: ITournamentPlayer[] = [...tournamentPlayers];
+        workTournamentPlayers[0].score = 2
+        workTournamentPlayers[1].score = 2
+        workTournamentPlayers[2].score = 2
+        workTournamentPlayers[3].score = 0
+        workTournamentPlayers[4].score = 1
+        workTournamentPlayers[5].score = 3
+        workTournamentPlayers[6].score = 3
+        workTournamentPlayers[7].score = 0
+        workTournamentPlayers[8].score = 0
+        workTournamentPlayers[9].score = 0
+        workTournamentPlayers[10].score = 0
+        workTournamentPlayers[11].score = 4
+        workTournamentPlayers[12].score = 4
+        workTournamentPlayers[13].score = 5
+        workTournamentPlayers[14].score = 5
+        workTournamentPlayers[15].score = 6
+        workTournamentPlayers[16].score = 0
+        workTournamentPlayers[17].score = 0
+        workTournamentPlayers[18].score = 3
+        workTournamentPlayers[19].score = 1
+        workTournamentPlayers[20].score = 5
+        workTournamentPlayers[21].score = 6
+        workTournamentPlayers[22].score = 9
+        workTournamentPlayers[23].score = 7
+        workTournamentPlayers[24].score = 7
+        const opponentCandidates: ITournamentPlayer[] = buildOpponentsCandidates(workTournamentPlayers)
+        expect(opponentCandidates.length).toEqual(24)
+        expect(opponentCandidates[0].id).toEqual("BhUQzSfXhzz")
+        expect(opponentCandidates[10].id).toEqual("FfOZDBM6mIt")
+        expect(opponentCandidates[23].id).toEqual("uT6akMHdPf")
+        done();
+      });
+    });
   })
 })
