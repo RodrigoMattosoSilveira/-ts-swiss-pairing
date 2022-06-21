@@ -128,11 +128,36 @@ describe(`tournament Player`, () => {
         workTournamentPlayers[22].score = 9
         workTournamentPlayers[23].score = 7
         workTournamentPlayers[24].score = 7
+
+        // sort by tournament score(desc) and club rating (desc)
+        workTournamentPlayers.sort((player_1, player_2) =>
+          player_2.score - player_1.score || player_2.clubRating - player_1.clubRating
+        )
+
+        // PsI5PH1s22x has the highest tournament score, we want to ensure it keeps playing!
+        expect(workTournamentPlayers[0].id).toEqual(`PsI5PH1s22x`)
+
+        // Lets simulate a few PsI5PH1s22x opponents - KPmlmxHY72", "sK7ae1F9crG", "_qzhuNqMqn"
+        workTournamentPlayers[0].opponents.push("KPmlmxHY72", "sK7ae1F9crG", "_qzhuNqMqn");
+        workTournamentPlayers[7].opponents.push("PsI5PH1s22x");
+        workTournamentPlayers[17].opponents.push("PsI5PH1s22x");
+        workTournamentPlayers[19].opponents.push("PsI5PH1s22x");
+        // Calculate the opponentCandidates array
         const opponentCandidates: ITournamentPlayer[] = buildOpponentsCandidates(workTournamentPlayers)
-        expect(opponentCandidates.length).toEqual(24)
-        expect(opponentCandidates[0].id).toEqual("BhUQzSfXhzz")
-        expect(opponentCandidates[10].id).toEqual("FfOZDBM6mIt")
-        expect(opponentCandidates[23].id).toEqual("uT6akMHdPf")
+
+        // PsI5PH1s22x should not be in its opponentCandidates array!
+        expect(opponentCandidates.find(element => element.id === "PsI5PH1s22x")).toBeFalsy();
+
+        // These others should be there
+        expect(opponentCandidates.length).toEqual(21);
+        expect(opponentCandidates.find(element => element.id === "BhUQzSfXhzz")).toBeTruthy();
+        expect(opponentCandidates.find(element => element.id === "FfOZDBM6mIt")).toBeTruthy();
+        expect(opponentCandidates.find(element => element.id === "uT6akMHdPf")).toBeTruthy();
+
+        // PsI5PH1s22x opponents - KPmlmxHY72", "sK7ae1F9crG", "_qzhuNqMqn" should not be in opponentCandidates
+        expect(opponentCandidates.find(element => element.id === "KPmlmxHY72")).toBeFalsy();
+        expect(opponentCandidates.find(element => element.id === "sK7ae1F9crG")).toBeFalsy();
+        expect(opponentCandidates.find(element => element.id === "_qzhuNqMqn")).toBeFalsy();
         done();
       });
     });
