@@ -1,4 +1,9 @@
-import {ITournamentPlayer, buildWorkTournamentPlayers, getByePlayer} from "./tournament-player";
+import {
+  ITournamentPlayer,
+  buildWorkTournamentPlayers,
+  getByePlayer,
+  pruneWorkTournamentPlayers
+} from "./tournament-player";
 import {Result} from "ts-results";
 
 describe(`tournament Player`, () => {
@@ -59,5 +64,31 @@ describe(`tournament Player`, () => {
       }
       done();
     });
+    it(`prunes the workTournamentPlayers array`, async done => {
+      const workTournamentPlayers: ITournamentPlayer[] = buildWorkTournamentPlayers(tournamentPlayers);
+      let pruneMe: string = "UnAsLvVwhkd";
+
+      // collect the players' ids in workTournamentPlayers
+      const workTournamentPlayersIDs: string[] = [];
+      workTournamentPlayers.forEach((player) => workTournamentPlayersIDs.push(player.id))
+
+      // prune workTournamentPlayers of the pruneMe player.id
+      const prunedWorkTournamentPlayers: ITournamentPlayer[] = pruneWorkTournamentPlayers(workTournamentPlayers,pruneMe);
+
+      // collect the players' ids in workTournamentPlayers
+      const prunedWorkTournamentPlayersIds: string[] = [];
+      prunedWorkTournamentPlayers.forEach((player) => prunedWorkTournamentPlayersIds.push(player.id));
+
+      // Find the elements of workTournamentPlayersIDs thare are not in prunedWorkTournamentPlayersIds
+      let missingIds: string[] = workTournamentPlayersIDs.filter(id => prunedWorkTournamentPlayersIds.indexOf(id) < 0);
+      expect(missingIds.length).toEqual(1);
+      expect(missingIds[0]).toEqual("UnAsLvVwhkd");
+
+      missingIds = prunedWorkTournamentPlayersIds.filter(id => workTournamentPlayersIDs.indexOf(id) < 0);
+      expect(missingIds.length).toEqual(0);
+
+      done();
+    });
+
   })
 })

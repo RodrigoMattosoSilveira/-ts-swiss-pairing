@@ -23,6 +23,11 @@ export type ITournamentPlayer = {
   lastTwoGamesColors: string[] // last two game colors
 }
 
+/**
+ * Creates a new version of the tournamentPlayers array, sorted by the players' tournament sccore and club rating
+ * @param tournamentPlayers
+ * @returns version of the tournamentPlayers array, sorted by the players' tournament sccore and club rating
+ */
 export const buildWorkTournamentPlayers = (tournamentPlayers: ITournamentPlayer[]): ITournamentPlayer[] => {
   return tournamentPlayers.sort(
     (player_1, player_2) =>
@@ -30,6 +35,21 @@ export const buildWorkTournamentPlayers = (tournamentPlayers: ITournamentPlayer[
   )
 }
 
+/**
+ * Removes the pruneMe element from the workTournamentPlayers array
+ * @param workTournamentPlayers
+ * @param pruneMe
+ * @returns workTournamentPlayers, pruned of the pruneMe element
+ */
+export const pruneWorkTournamentPlayers = (workTournamentPlayers:ITournamentPlayer[], pruneMe:string): ITournamentPlayer[] => {
+  return [...workTournamentPlayers].filter((player) => player.id !== pruneMe)
+}
+
+/**
+ * Returns the tournament's lower ranked player, who will be a next round bye player
+ * @param workTournamentPlayers
+ * @return Result<ITournamentPlayer, Error>
+ */
 export const getByePlayer = (workTournamentPlayers: ITournamentPlayer[]): Result<ITournamentPlayer, Error>  => {
   let result: Result<ITournamentPlayer, Error>;
   if (workTournamentPlayers.length % 2 === 0) {
