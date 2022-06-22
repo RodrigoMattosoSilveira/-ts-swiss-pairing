@@ -1,7 +1,7 @@
-import {ITournamentPlayer} from "./tournament-player";
+import {BYE_PLAYER, ITournamentPlayer} from "./tournament-player";
 import {ITournamentRound, planRound} from "./tournament-round";
 
-describe(`tournament round`, () => {
+describe(`plan a round`, () => {
   let tournamentPlayers: ITournamentPlayer[] = []
   beforeEach(async done => {
     tournamentPlayers = [
@@ -208,9 +208,31 @@ describe(`tournament round`, () => {
     ];
     done();
   });
-  it(`plan a round`, async done => {
+  it(`has 13 games when dealing with 25 player`, async done => {
    const tournamentRound: ITournamentRound = planRound(tournamentPlayers)
     expect(tournamentRound.games.length).toEqual(13);
+    done();
+  });
+  it(`has 12 games when dealing with 24 player`, async done => {
+    const tournamentPlayers_24 = tournamentPlayers.slice(1)
+    const tournamentRound: ITournamentRound = planRound(tournamentPlayers_24)
+    expect(tournamentRound.games.length).toEqual(12);
+    done();
+  });
+  it(`players are assigned to one and only one game`, async done => {
+    const countGames: any = {};
+    tournamentPlayers.forEach((player) => countGames[player.id] = 0)
+    const tournamentRound: ITournamentRound = planRound(tournamentPlayers)
+    tournamentRound.games.forEach((game) => {
+      countGames[game.whitePiecesPlayer.id]++;
+      if (game.blackPiecesPlayer.id !== BYE_PLAYER) {
+        countGames[game.blackPiecesPlayer.id]++;
+      }
+    })
+    const onlyOneGame = (Object.keys(countGames) as (keyof typeof countGames)[]).every((key) => {
+      return countGames[key] === 1;
+    });
+    expect(onlyOneGame).toBe(true)
     done();
   });
 })

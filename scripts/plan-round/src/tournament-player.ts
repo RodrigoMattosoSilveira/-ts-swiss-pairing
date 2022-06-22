@@ -24,6 +24,16 @@ export type ITournamentPlayer = {
   lastTwoGamesColors: COLOR[] // last two game colors
 }
 
+export const BYE_PLAYER: string = `BYE PLAYER`
+export const TOURNAMENT_BYE_PLAYER: ITournamentPlayer = {
+  id: BYE_PLAYER,
+  name: BYE_PLAYER,
+  score: 0,
+  clubRating: 0,
+  opponents: [],
+  lastTwoGamesColors: [],
+}
+
 /**
  * Creates a new version of the tournamentPlayers array, sorted by the players' tournament sccore and club rating
  * @param tournamentPlayers

@@ -1,4 +1,4 @@
-import {ITournamentGame, ITournamentGameBye, ITournamentGameReal} from "./tournament-game";
+import {ITournamentGame} from "./tournament-game";
 import {STATUS, STATUS_COMPLETED, STATUS_PLANNED} from "./status";
 import {TOURNAMENT_SCORE_BYE, TOURNAMENT_SCORE_LOSS} from "./tournament";
 import {
@@ -6,7 +6,8 @@ import {
   buildWorkTournamentPlayers,
   getByePlayer,
   ITournamentPlayer,
-  pruneWorkTournamentPlayers
+  pruneWorkTournamentPlayers,
+  TOURNAMENT_BYE_PLAYER
 } from "./tournament-player";
 import {Result} from "ts-results";
 import shortid from "shortid";
@@ -33,10 +34,12 @@ export const planRound = (players: ITournamentPlayer[]): ITournamentRound => {
   let resultBye: Result<ITournamentPlayer, Error> = getByePlayer(workTournamentPlayers);
   if (resultBye.ok) {
     // We have a round bye player
-    const byeGame: ITournamentGameBye = {
+    const byeGame: ITournamentGame = {
       id: shortid.generate(),
-      byePlayer: <ITournamentPlayer>resultBye.val,
-      byePlayerScore: TOURNAMENT_SCORE_BYE,
+      whitePiecesPlayer: <ITournamentPlayer>resultBye.val,
+      whitePiecesPlayerScore:TOURNAMENT_SCORE_BYE,
+      blackPiecesPlayer: TOURNAMENT_BYE_PLAYER,
+      blackPiecesPlayerScore: TOURNAMENT_SCORE_LOSS,
       status: STATUS_COMPLETED
     }
     tournamentRound['games'].push(byeGame)
@@ -105,7 +108,7 @@ export const planRound = (players: ITournamentPlayer[]): ITournamentRound => {
     }
 
     // We have a candidateGame that can turn into a real game
-    const gameReal: ITournamentGameReal = {
+    const gameReal: ITournamentGame = {
       id: shortid.generate(),
       whitePiecesPlayer: candidateGame.player_1.candidateColor === WHITE_PIECES ? {...candidateGame.player_1.candidate} : {...candidateGame.player_2.candidate},
       whitePiecesPlayerScore: TOURNAMENT_SCORE_LOSS,
