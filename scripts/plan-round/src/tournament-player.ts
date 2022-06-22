@@ -13,6 +13,7 @@
  * - Adds the TournamentT.winPoints or drawPoints, to each players ITournamentPlayer.score, based on the game result;
  */
 import { Ok, Err, Result } from 'ts-results';
+import {COLOR} from "./color";
 
 export type ITournamentPlayer = {
   id: string; // Club Member Id
@@ -20,7 +21,7 @@ export type ITournamentPlayer = {
   score: number // tournament score, updated after each game
   clubRating: number; // club rate, set at the start of the tournament
   opponents: string[];
-  lastTwoGamesColors: string[] // last two game colors
+  lastTwoGamesColors: COLOR[] // last two game colors
 }
 
 /**
