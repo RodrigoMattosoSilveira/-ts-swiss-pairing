@@ -1,5 +1,6 @@
 import {ITournamentPlayer} from "./tournament-player";
-import {ITournamentGame} from "./tournament-game";
+import {ITournamentGameReal} from "./tournament-game";
+import {STATUS} from "./status";
 
 /**
  * The landing page has a link for a Club Member to
@@ -26,8 +27,8 @@ import {ITournamentGame} from "./tournament-game";
  */
 
 export type ITournament = {
-  id: string;           // 8 chars, random string
-  director: string;     // Club Member ID
+  id: string; // 8 chars, random string
+  director: string; // Club Member ID
   name: string;
   start: Date;
   end: Date;
@@ -38,5 +39,13 @@ export type ITournament = {
   drawPoints: number;
   lossPoints: number;
   players: ITournamentPlayer[];
-  rounds: ITournamentGame[][];
+  rounds: ITournamentGameReal[][];
+  status: STATUS
 }
+
+export type TOURNAMENT_SCORE = number;
+export const TOURNAMENT_SCORE_WIN: TOURNAMENT_SCORE = 3;
+export const TOURNAMENT_SCORE_BYE: TOURNAMENT_SCORE = 3;
+export const TOURNAMENT_SCORE_FORFEIT: TOURNAMENT_SCORE = 3;
+export const TOURNAMENT_SCORE_DRAW: TOURNAMENT_SCORE = 1;
+export const TOURNAMENT_SCORE_LOSS: TOURNAMENT_SCORE = 0;

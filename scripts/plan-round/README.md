@@ -129,3 +129,4 @@ is the opposite of their last game; although it is OK to play two games with the
 1. [Comparing Arrays](https://stackoverflow.com/questions/38498258/typescript-difference-between-two-arrays)
 2. [Sort array by multiple fields](https://www.benmvp.com/blog/quick-way-sort-javascript-array-multiple-fields/)
 3. [ts-results](https://www.npmjs.com/package/ts-results/v/3.3.0)
+4. [How to Break Out of a JavaScript forEach() Loop](https://masteringjs.io/tutorials/fundamentals/foreach-break)
