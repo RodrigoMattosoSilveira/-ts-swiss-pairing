@@ -96,6 +96,73 @@ Using the `Candidate Game Array`
       2. end
    3. end
 
+# Personas
+## club member
+1. signs up for club membership on a public page
+1. has a last nanme
+1. has a first name
+1. has address
+1. has cell phone
+1. has email address
+1. has username
+1. has password
+1. has a club rating
+1. has gamesPlayed
+1. has status
+tournament
+1. ceated by a club member
+1. has a current tournement score table
+1. has players
+1. has a director
+1. has a start date
+1. has an end date
+1. has a maximum number of players
+1. has the number of rounds
+1. has the number of points for a win
+1. has the number of points for a draw
+1. has the number of points for a bye
+1. has the number of points for a forfeit
+1. has the number of points for a loss
+1. has rounds
+1. has status
+## tournament round
+1. created by a TD
+1. has players
+1. has games
+1. has a status
+## game
+1. created by a TD
+1. has a white pieces player
+1. has the white pieces player score
+1. has a black pieces player
+1. has the black pieces player score
+1. has a status
+
+# Roles
+## club member
+1. Anyone can sign up to be a club member
+## club administrator
+1. A club member
+1. Given the role by the system instantiator
+1. has all other roles, except  system administrator
+## tournament director
+1. a club member who created a tournament
+1. can create other tournament director
+1. can plan the next tournament round
+1. can start the next tournament round
+1. can start a game
+1. can stop a game
+1. can close a round
+1. can close a tournament
+## player
+1. a club member who signed up for a tournament
+## system administrator
+1. created at system instantiation time
+1. can create other system administrator
+1. can delete an existing system administrator, except the original one and itself
+1. has all other roles
+
+
 # Links and references
 1. [Comparing Arrays](https://stackoverflow.com/questions/38498258/typescript-difference-between-two-arrays)
 2. [Sort array by multiple fields](https://www.benmvp.com/blog/quick-way-sort-javascript-array-multiple-fields/)

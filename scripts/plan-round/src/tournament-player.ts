@@ -22,6 +22,7 @@ export type ITournamentPlayer = {
   clubRating: number; // club rate, set at the start of the tournament
   opponents: string[];
   lastTwoGamesColors: COLOR[] // last two game colors
+  byeOrForfeit: number;
 }
 
 export const BYE_PLAYER: string = `BYE PLAYER`
@@ -32,6 +33,8 @@ export const TOURNAMENT_BYE_PLAYER: ITournamentPlayer = {
   clubRating: 0,
   opponents: [],
   lastTwoGamesColors: [],
+  byeOrForfeit: 0
+
 }
 
 /**

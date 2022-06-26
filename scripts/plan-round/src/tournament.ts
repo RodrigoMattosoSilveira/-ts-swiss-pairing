@@ -1,5 +1,5 @@
 import {ITournamentPlayer} from "./tournament-player";
-import {ITournamentGameReal} from "./tournament-game";
+import {ITournamentGame} from "./tournament-game";
 import {STATUS} from "./status";
 
 /**
@@ -39,7 +39,7 @@ export type ITournament = {
   drawPoints: number;
   lossPoints: number;
   players: ITournamentPlayer[];
-  rounds: ITournamentGameReal[][];
+  rounds: ITournamentGame[][];
   status: STATUS
 }
 
