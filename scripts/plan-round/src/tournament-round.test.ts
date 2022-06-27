@@ -11,7 +11,8 @@ describe(`plan a round`, () => {
         "clubRating": 2043,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "7Sf0CcAaoz",
@@ -19,7 +20,8 @@ describe(`plan a round`, () => {
         "clubRating": 1544,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "0AwPRm82Le",
@@ -27,7 +29,8 @@ describe(`plan a round`, () => {
         "clubRating": 1957,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "5udxzNEpIu",
@@ -35,7 +38,8 @@ describe(`plan a round`, () => {
         "clubRating": 1026,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "pPiXT9EJ1C",
@@ -43,7 +47,8 @@ describe(`plan a round`, () => {
         "clubRating": 1945,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "ofP1VHpOGW",
@@ -51,7 +56,8 @@ describe(`plan a round`, () => {
         "clubRating": 1705,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "hQuf6bERqH",
@@ -59,7 +65,8 @@ describe(`plan a round`, () => {
         "clubRating": 1584,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "uT6akMHdPf",
@@ -67,7 +74,8 @@ describe(`plan a round`, () => {
         "clubRating": 2039,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "PWyP6-21cX",
@@ -75,7 +83,8 @@ describe(`plan a round`, () => {
         "clubRating": 1073,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "_qzhuNqMqn",
@@ -83,7 +92,8 @@ describe(`plan a round`, () => {
         "clubRating": 1909,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "VlXqLDxUN9",
@@ -91,7 +101,8 @@ describe(`plan a round`, () => {
         "clubRating": 1608,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "eHQmmc9VAB",
@@ -99,7 +110,8 @@ describe(`plan a round`, () => {
         "clubRating": 1146,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "6b4Pb8NV3i",
@@ -107,7 +119,8 @@ describe(`plan a round`, () => {
         "clubRating": 1740,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "b1ONc6PJP6",
@@ -115,7 +128,8 @@ describe(`plan a round`, () => {
         "clubRating": 1859,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "KPmlmxHY72",
@@ -123,7 +137,8 @@ describe(`plan a round`, () => {
         "clubRating": 1685,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "v5VDWM8815",
@@ -131,7 +146,8 @@ describe(`plan a round`, () => {
         "clubRating": 1698,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "UnAsLvVwhkd",
@@ -139,7 +155,8 @@ describe(`plan a round`, () => {
         "clubRating": 1205,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "-i5XjpvwF4j",
@@ -147,7 +164,8 @@ describe(`plan a round`, () => {
         "clubRating": 1131,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "FfOZDBM6mIt",
@@ -155,7 +173,8 @@ describe(`plan a round`, () => {
         "clubRating": 1669,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "sK7ae1F9crG",
@@ -163,7 +182,8 @@ describe(`plan a round`, () => {
         "clubRating": 1788,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "zV5quEifuR-",
@@ -171,7 +191,8 @@ describe(`plan a round`, () => {
         "clubRating": 1884,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "1tiN6IHrL2Y",
@@ -179,7 +200,8 @@ describe(`plan a round`, () => {
         "clubRating": 1309,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "PsI5PH1s22x",
@@ -187,7 +209,8 @@ describe(`plan a round`, () => {
         "clubRating": 1008,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "xF5H9yWm_bX",
@@ -195,7 +218,8 @@ describe(`plan a round`, () => {
         "clubRating": 1280,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       },
       {
         "id": "BhUQzSfXhzz",
@@ -203,7 +227,8 @@ describe(`plan a round`, () => {
         "clubRating": 1278,
         "lastTwoGamesColors": [],
         "opponents": [],
-        "score": 0
+        "score": 0,
+        "byeOrForfeit": 0
       }
     ];
     done();

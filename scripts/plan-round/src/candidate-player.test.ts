@@ -7,7 +7,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors is empty`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -17,7 +17,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has one entry, WHITE_PIECES`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -27,7 +27,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has one entry, BLACK_PIECES`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -39,7 +39,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has no entries`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -51,7 +51,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has one entry`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -63,7 +63,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has 3 entries`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES, BLACK_PIECES, BLACK_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES, BLACK_PIECES, BLACK_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -75,7 +75,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has 2 entries, White/White`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES, WHITE_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES, WHITE_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -87,7 +87,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has 2 entries, White/Black`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES, BLACK_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES, BLACK_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -99,7 +99,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has 2 entries, Black/White`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES, WHITE_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES, WHITE_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
@@ -111,7 +111,7 @@ describe(`Candidate Player`, () => {
     it(`lastTwoGamesColors has 2 entries, Black/Black`, async done => {
       const candidatePlayer: ICandidatePlayer = {
         candidate: {
-          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES, BLACK_PIECES],"opponents":[],"score":0
+          "id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[BLACK_PIECES, BLACK_PIECES],"opponents":[],"score":0, "byeOrForfeit": 0
         },
         candidateColor: "x"
       }
