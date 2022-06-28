@@ -3,9 +3,10 @@ import {
   buildWorkTournamentPlayers,
   getByePlayer,
   pruneWorkTournamentPlayers,
-  buildOpponentsCandidates
+  buildOpponentsCandidates, setUpPlayerGame
 } from "./tournament-player";
 import {Result} from "ts-results";
+import {BLACK_PIECES, COLOR, WHITE_PIECES} from "./color";
 
 describe(`tournament Player`, () => {
   let tournamentPlayers: ITournamentPlayer[] = []
@@ -168,6 +169,50 @@ describe(`tournament Player`, () => {
         expect(opponentCandidates.find(element => element.id === "KPmlmxHY72")).toBeFalsy();
         expect(opponentCandidates.find(element => element.id === "sK7ae1F9crG")).toBeFalsy();
         expect(opponentCandidates.find(element => element.id === "_qzhuNqMqn")).toBeFalsy();
+        done();
+      });
+    });
+    describe(`setupPlayerGame`, () => {
+      it(`works with colors length is zero`, async done => {
+        let player: ITournamentPlayer = {"id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[],"opponents":[],"score":0, "byeOrForfeit": 0};
+        let opponentId: string = "0AwPRm82Le"
+        let piecesColor: COLOR = WHITE_PIECES;
+        expect(player.opponents.length).toEqual(0)
+        expect(player.lastTwoGamesColors.length).toEqual(0)
+        setUpPlayerGame(player, piecesColor, opponentId)
+        expect(player.opponents.length).toEqual(1)
+        expect(player.opponents[0]).toEqual(opponentId)
+        expect(player.lastTwoGamesColors.length).toEqual(1)
+        expect(player.lastTwoGamesColors[0]).toEqual(piecesColor)
+        done();
+      });
+      it(`works with colors length is one`, async done => {
+        let player: ITournamentPlayer = {"id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES],"opponents":["0AwPRm82Le"],"score":0, "byeOrForfeit": 0};
+        let opponentId: string = "FfOZDBM6mIt"
+        let piecesColor: COLOR = BLACK_PIECES;
+        expect(player.opponents.length).toEqual(1)
+        expect(player.lastTwoGamesColors.length).toEqual(1)
+        setUpPlayerGame(player, piecesColor, opponentId)
+        expect(player.opponents.length).toEqual(2)
+        expect(player.opponents[0]).toEqual("0AwPRm82Le")
+        expect(player.opponents[1]).toEqual(opponentId)
+        expect(player.lastTwoGamesColors.length).toEqual(2)
+        expect(player.lastTwoGamesColors).toEqual([WHITE_PIECES, piecesColor])
+        done();
+      });
+      it(`works with colors length is two`, async done => {
+        let player: ITournamentPlayer = {"id":"wMIO8kdJi","name":"Hodge, Adeline","clubRating":2043,"lastTwoGamesColors":[WHITE_PIECES, BLACK_PIECES],"opponents":["0AwPRm82Le", "FfOZDBM6mIt"],"score":0, "byeOrForfeit": 0};
+        let opponentId: string = "BhUQzSfXhzz"
+        let piecesColor: COLOR = BLACK_PIECES;
+        expect(player.opponents.length).toEqual(2)
+        expect(player.lastTwoGamesColors.length).toEqual(2)
+        setUpPlayerGame(player, piecesColor, opponentId)
+        expect(player.opponents.length).toEqual(3)
+        expect(player.opponents[0]).toEqual("0AwPRm82Le")
+        expect(player.opponents[1]).toEqual("FfOZDBM6mIt")
+        expect(player.opponents[2]).toEqual(opponentId)
+        expect(player.lastTwoGamesColors.length).toEqual(2)
+        expect(player.lastTwoGamesColors).toEqual([BLACK_PIECES, BLACK_PIECES])
         done();
       });
     });
