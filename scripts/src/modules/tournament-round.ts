@@ -10,7 +10,7 @@ import {
   TOURNAMENT_BYE_PLAYER
 } from "./tournament-player";
 import {Err, Ok, Result} from "ts-results";
-import shortid from "shortid";
+import shortid = require("shortid");
 import {ICandidateGame} from "./candidate-game";
 import {BLACK_PIECES, COLOR, WHITE_PIECES} from "./color";
 import {alternatePlayingColor, idealPlayingColor} from "./candidate-player";

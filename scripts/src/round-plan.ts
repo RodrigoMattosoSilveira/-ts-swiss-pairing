@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import {ITournamentRound, planRound, startRound} from "./tournament-round";
-import {ITournament, readTournament, saveTournament} from "./tournament";
+import {ITournamentRound, planRound, startRound} from "./modules/tournament-round";
+import {ITournament, readTournament, saveTournament} from "./modules/tournament";
 
 
 // Parse tournament file name

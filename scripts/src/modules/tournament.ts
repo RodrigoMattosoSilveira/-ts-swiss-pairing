@@ -1,7 +1,8 @@
 import {ITournamentPlayer} from "./tournament-player";
 import {STATUS} from "./status";
 import {ITournamentRound} from "./tournament-round";
-import fs from "fs";
+// import fs from "fs";
+import * as fs from 'fs';
 
 /**
  * The landing page has a link for a Club Member to
@@ -51,6 +52,8 @@ export const TOURNAMENT_SCORE_FORFEIT: TOURNAMENT_SCORE = 3;
 export const TOURNAMENT_SCORE_DRAW: TOURNAMENT_SCORE = 1;
 export const TOURNAMENT_SCORE_LOSS: TOURNAMENT_SCORE = 0;
 
+export type ITournamentType = string;
+export const TOURNAMENT_TYPE_SWISS: ITournamentType = "swiss"
 
 // Read tournament
 export const readTournament = (tournamentFn: string): ITournament => {
@@ -70,11 +73,10 @@ export const readTournament = (tournamentFn: string): ITournament => {
   return tournament;
 }
 
-
 // Save tournament
 export const saveTournament = (tournamentFn: string, newTournament: ITournament): void => {
   try {
-    const fd = fs.openSync(`${__dirname}/${tournamentFn}`, 'w', 0o666)
+    const fd = fs.openSync(`${__dirname}/${tournamentFn}`, 'w+', 0o666)
     fs.writeSync(fd, JSON.stringify(newTournament));
     fs.closeSync(fd);
   }
@@ -83,3 +85,15 @@ export const saveTournament = (tournamentFn: string, newTournament: ITournament)
   }
 }
 
+
+// Save tournament
+export const saveRawTournament = (tournamentFn: string, newTournament: ITournament): void => {
+  try {
+    const fd = fs.openSync(tournamentFn, 'w+', 0o666)
+    fs.writeSync(fd, JSON.stringify(newTournament));
+    fs.closeSync(fd);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
