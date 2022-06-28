@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
+    "lib": ["es6", "es2015", "dom"],
     "moduleResolution": "node",
     "declaration": true,
     "strict": true,
@@ -18,15 +19,12 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "sourceMap": true,
+    "rootDir": "src",
     "outDir": "./dist/tsc/",
     "types": [
       "node",
       "jest"
     ],
-    "lib": [
-      "ES6",
-      "DOM"
-    ]
   },
   "include": [
     "src/**/*.ts"
@@ -34,5 +32,6 @@
   "exclude": [
     "node_modules",
     "**/*.test.ts"
-  ]
+  ],
+  "resolveJsonModule": true
 }

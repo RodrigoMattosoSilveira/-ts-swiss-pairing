@@ -168,3 +168,6 @@ tournament
 2. [Sort array by multiple fields](https://www.benmvp.com/blog/quick-way-sort-javascript-array-multiple-fields/)
 3. [ts-results](https://www.npmjs.com/package/ts-results/v/3.3.0)
 4. [How to Break Out of a JavaScript forEach() Loop](https://masteringjs.io/tutorials/fundamentals/foreach-break)
+5. [Node Read File Sync](https://nodejs.org/docs/latest-v15.x/api/fs.html#fs_fs_readlinksync_path_options)
+6. [How to Break Out of a JavaScript forEach() Loop](https://masteringjs.io/tutorials/fundamentals/foreach-break)
+7. [How To Create Your Own TypeScript CLI — With Node.js](https://itnext.io/how-to-create-your-own-typescript-cli-with-node-js-1faf7095ef89)

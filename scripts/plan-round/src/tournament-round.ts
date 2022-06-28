@@ -1,15 +1,15 @@
 import {ITournamentGame} from "./tournament-game";
-import {STATUS, STATUS_COMPLETED, STATUS_PLANNED} from "./status";
-import {TOURNAMENT_SCORE_BYE, TOURNAMENT_SCORE_LOSS} from "./tournament";
+import {STATUS, STATUS_COMPLETED, STATUS_PLANNED, STATUS_UNDERWAY} from "./status";
+import {ITournament, TOURNAMENT_SCORE_BYE, TOURNAMENT_SCORE_LOSS} from "./tournament";
 import {
   buildOpponentsCandidates,
   buildWorkTournamentPlayers,
   getByePlayer,
   ITournamentPlayer,
-  pruneWorkTournamentPlayers,
+  pruneWorkTournamentPlayers, setUpPlayerGame,
   TOURNAMENT_BYE_PLAYER
 } from "./tournament-player";
-import {Result} from "ts-results";
+import {Err, Ok, Result} from "ts-results";
 import shortid from "shortid";
 import {ICandidateGame} from "./candidate-game";
 import {BLACK_PIECES, COLOR, WHITE_PIECES} from "./color";
@@ -125,4 +125,45 @@ export const planRound = (players: ITournamentPlayer[]): ITournamentRound => {
 
   // build the
   return tournamentRound;
+}
+
+export const findNextRoundToStart = (tournament: ITournament): Result<ITournamentRound, string> => {
+  let nextRoundToStart: Result<ITournamentRound, string>;
+  nextRoundToStart = Err(`round is not in planning state`);
+  tournament.rounds.every((tr: ITournamentRound) => {
+    if (tr.status === STATUS_PLANNED) {
+      nextRoundToStart = Ok(tr);
+      return false
+    }
+    else {
+      nextRoundToStart = Err(`round is not in planning state`);
+      return true
+    }
+  })
+  return nextRoundToStart;
+}
+
+export const startRound = (tournament: ITournament): void => {
+
+  const nextRoundToStart: Result<ITournamentRound, string> = findNextRoundToStart(tournament);
+  let round: ITournamentRound;
+  if (nextRoundToStart.err) {
+    console.error(`Did not find a round in planning state`)
+    process.exit(1)
+  }
+  round = <ITournamentRound>nextRoundToStart.val;
+  round.games.forEach((game: ITournamentGame) => {
+    if (game.blackPiecesPlayer.id !== TOURNAMENT_BYE_PLAYER.id ) {
+      tournament.players.forEach((player: ITournamentPlayer) => {
+        if (player.id === game.whitePiecesPlayer.id) {
+          setUpPlayerGame(player, WHITE_PIECES, game.blackPiecesPlayer.id)
+        }
+        if (player.id === game.blackPiecesPlayer.id) {
+          setUpPlayerGame(player,  BLACK_PIECES, game.whitePiecesPlayer.id)
+       }
+      });
+      game.status = STATUS_UNDERWAY
+    }
+  });
+  round.status = STATUS_UNDERWAY;
 }

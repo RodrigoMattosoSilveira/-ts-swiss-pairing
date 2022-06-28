@@ -10,3 +10,4 @@ export type ITournamentGame = {
   blackPiecesPlayerScore: TOURNAMENT_SCORE;
   status: STATUS; // (p)lanned(default), (u)nderway, (c)ompleted
 }
+

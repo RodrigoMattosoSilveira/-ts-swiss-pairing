@@ -1,20 +1,17 @@
 #!/usr/bin/env node
 
-import {ITournamentRound, planRound, startRound} from "./tournament-round";
+import {startRound} from "./tournament-round";
 import {ITournament, readTournament, saveTournament} from "./tournament";
-
 
 // Parse tournament file name
 const myArgs = process.argv.slice(2);
 const tournamentFn = myArgs[0];
 console.log(`TournamentFn: ${tournamentFn}`);
 
-// Parse tournament players
+// Read the tournament
 const tournament: ITournament = readTournament(<string>tournamentFn)
 
-// Plan and save the next round
+// start the current round
 startRound(tournament);
-const tournamentRound: ITournamentRound = planRound(tournament.players)
-tournament.rounds.push(tournamentRound)
 saveTournament(<string>tournamentFn, tournament);
-// console.log(util.inspect(tournamentRound.games, { compact: true, depth: 10, breakLength: 80 }));
+

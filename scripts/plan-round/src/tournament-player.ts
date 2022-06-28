@@ -106,4 +106,12 @@ export const buildOpponentsCandidates = (workTournamentPlayers:ITournamentPlayer
     })
 }
 
+export const setUpPlayerGame = (player: ITournamentPlayer, piecesColors: string, opponentId: string): void => {
+    player.opponents.push(opponentId)
+    player.lastTwoGamesColors.push(piecesColors);
+    if (player.lastTwoGamesColors.length > 2) {
+      player.lastTwoGamesColors = player.lastTwoGamesColors.slice(1)
+    }
+}
+
 
