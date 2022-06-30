@@ -4,8 +4,7 @@ import {startRound} from "./modules/tournament-round";
 import {ITournament, readTournament, saveTournament} from "./modules/tournament";
 
 // Parse tournament file name
-const myArgs = process.argv.slice(2);
-const tournamentFn = myArgs[0];
+const tournamentFn = "/Users/rodrigosilveira/projects/ts-swiss-pairing/scripts/data/updated/tournament.json"
 console.log(`TournamentFn: ${tournamentFn}`);
 
 // Read the tournament
