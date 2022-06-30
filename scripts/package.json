@@ -24,12 +24,13 @@
     "ts-node": "ts-node",
     "docs": "typedoc --entryPoints src/main.ts",
     "build": "tsc -p tsconfig.json",
+    "tournament-reset": "cp data/raw/tournament.json data/updated/tournament.json",
     "club-member-create":  "ts-node src/club-member-create.ts",
-    "round-plan-0": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/round-plan.ts data/raw/tournament.json data/updated/tournament.json",
-    "round-plan-x": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/round-plan.ts data/updated/tournament.json data/updated/tournament.json",
-    "round-start": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/round-start.ts data/updated/tournament.json data/updated/tournament.json",
+    "round-plan": "ts-node src/round-plan.ts",
+    "round-start": "ts-node src/round-start.ts",
     "start": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "tournament-create":  "ts-node src/tournament-create.ts"
+    "tournament-create":  "ts-node src/tournament-create.ts",
+    "round-plan-w": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/round-plan.ts data/updated/tournament.json data/updated/tournament.json"
   },
   "dependencies": {
     "shortid": "^2.2.16",
