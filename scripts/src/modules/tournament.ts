@@ -60,8 +60,8 @@ export const readTournament = (tournamentFn: string): ITournament => {
   let tournament: ITournament;
   let data: string = '';
   try {
-    const fd = fs.openSync(`${__dirname}/${tournamentFn}`, 'r', 0o666)
-    data = fs.readFileSync(`${__dirname}/${tournamentFn}`, { encoding: 'utf8' });
+    const fd = fs.openSync(tournamentFn, 'r', 0o666)
+    data = fs.readFileSync(fd, { encoding: 'utf8' });
     fs.closeSync(fd);
   }
   catch (err) {
@@ -76,7 +76,7 @@ export const readTournament = (tournamentFn: string): ITournament => {
 // Save tournament
 export const saveTournament = (tournamentFn: string, newTournament: ITournament): void => {
   try {
-    const fd = fs.openSync(`${__dirname}/${tournamentFn}`, 'w+', 0o666)
+    const fd = fs.openSync(tournamentFn, 'w+', 0o666)
     fs.writeSync(fd, JSON.stringify(newTournament));
     fs.closeSync(fd);
   }
