@@ -12,7 +12,7 @@
  * When the Tournament Director closes a ITournament.Game, the application:
  * - Adds the TournamentT.winPoints or drawPoints, to each players ITournamentPlayer.score, based on the game result;
  */
-import { Ok, Err, Result } from 'ts-results';
+import {Err, Ok, Result} from 'ts-results';
 import {COLOR} from "./color";
 
 export type ITournamentPlayer = {
@@ -26,7 +26,7 @@ export type ITournamentPlayer = {
 }
 
 export const BYE_PLAYER: string = `BYE PLAYER`
-export const TOURNAMENT_BYE_PLAYER: ITournamentPlayer = {
+export const ROUND_BYE_PLAYER: ITournamentPlayer = {
   id: BYE_PLAYER,
   name: BYE_PLAYER,
   score: 0,
@@ -40,7 +40,7 @@ export const TOURNAMENT_BYE_PLAYER: ITournamentPlayer = {
 /**
  * Creates a new version of the tournamentPlayers array, sorted by the players' tournament sccore and club rating
  * @param tournamentPlayers
- * @returns version of the tournamentPlayers array, sorted by the players' tournament sccore and club rating
+ * @returns version of the tournamentPlayers array, sorted by the players' tournament score and club rating
  */
 export const buildWorkTournamentPlayers = (tournamentPlayers: ITournamentPlayer[]): ITournamentPlayer[] => {
   return tournamentPlayers.sort(
@@ -113,5 +113,4 @@ export const setUpPlayerGame = (player: ITournamentPlayer, piecesColors: string,
       player.lastTwoGamesColors = player.lastTwoGamesColors.slice(1)
     }
 }
-
 

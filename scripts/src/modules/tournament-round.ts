@@ -1,5 +1,5 @@
 import {ITournamentGame} from "./tournament-game";
-import {STATUS, STATUS_COMPLETED, STATUS_PLANNED, STATUS_UNDERWAY} from "./status";
+import {STATUS, STATUS_PLANNED, STATUS_UNDERWAY} from "./status";
 import {ITournament, TOURNAMENT_SCORE_BYE, TOURNAMENT_SCORE_LOSS} from "./tournament";
 import {
   buildOpponentsCandidates,
@@ -7,7 +7,7 @@ import {
   getByePlayer,
   ITournamentPlayer,
   pruneWorkTournamentPlayers, setUpPlayerGame,
-  TOURNAMENT_BYE_PLAYER
+  ROUND_BYE_PLAYER
 } from "./tournament-player";
 import {Err, Ok, Result} from "ts-results";
 import shortid = require("shortid");
@@ -38,10 +38,11 @@ export const planRound = (players: ITournamentPlayer[]): ITournamentRound => {
       id: shortid.generate(),
       whitePiecesPlayer: <ITournamentPlayer>resultBye.val,
       whitePiecesPlayerScore:TOURNAMENT_SCORE_BYE,
-      blackPiecesPlayer: TOURNAMENT_BYE_PLAYER,
+      blackPiecesPlayer: ROUND_BYE_PLAYER,
       blackPiecesPlayerScore: TOURNAMENT_SCORE_LOSS,
-      status: STATUS_COMPLETED
+      status: STATUS_PLANNED
     }
+    byeGame.whitePiecesPlayer.byeOrForfeit += 1;
     tournamentRound['games'].push(byeGame)
 
     // remove the bye player from workTournamentPlayers
@@ -153,7 +154,7 @@ export const startRound = (tournament: ITournament): void => {
   }
   round = <ITournamentRound>nextRoundToStart.val;
   round.games.forEach((game: ITournamentGame) => {
-    if (game.blackPiecesPlayer.id !== TOURNAMENT_BYE_PLAYER.id ) {
+    if (game.blackPiecesPlayer.id !== ROUND_BYE_PLAYER.id ) {
       tournament.players.forEach((player: ITournamentPlayer) => {
         if (player.id === game.whitePiecesPlayer.id) {
           setUpPlayerGame(player, WHITE_PIECES, game.blackPiecesPlayer.id)
@@ -162,8 +163,22 @@ export const startRound = (tournament: ITournament): void => {
           setUpPlayerGame(player,  BLACK_PIECES, game.whitePiecesPlayer.id)
        }
       });
-      game.status = STATUS_UNDERWAY
     }
+    game.status = STATUS_UNDERWAY
   });
   round.status = STATUS_UNDERWAY;
+}
+
+export const getRoundUnderaway = (tournament: ITournament): ITournamentRound => {
+  let roundUnderaway: {} = {};
+  tournament.rounds.every((round) => {
+    if (round.status === STATUS_UNDERWAY) {
+      roundUnderaway = round
+      return false
+    }
+    else {
+      return true
+    }
+  })
+  return <ITournamentRound>roundUnderaway;
 }
