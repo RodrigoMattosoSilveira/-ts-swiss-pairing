@@ -28,9 +28,11 @@
     "club-member-create":  "ts-node src/club-member-create.ts",
     "round-plan": "ts-node src/round-plan.ts",
     "round-start": "ts-node src/round-start.ts",
+    "games-end": "ts-node src/games-end",
     "start": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "tournament-create":  "ts-node src/tournament-create.ts",
-    "round-plan-w": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/round-plan.ts data/updated/tournament.json data/updated/tournament.json"
+    "tournament-create":  "ts-node src/tournament-create.ts && yarn tournament-reset",
+    "round-plan-w": "nodemon --watch '../src/**/*.ts' --exec 'ts-node' src/round-plan.ts data/updated/tournament.json data/updated/tournament.json",
+    "all": "yarn tournament-create && yarn round-plan && yarn round-start && yarn games-end"
   },
   "dependencies": {
     "shortid": "^2.2.16",
